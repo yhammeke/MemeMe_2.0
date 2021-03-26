@@ -41,11 +41,7 @@ class SentMemeTableViewController: UITableViewController {
         if editingStyle == .delete {
             appDelegate.memes.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            //super.setEditing(isEditing, animated: true)
-            if appDelegate.memes.count == 0 {
-                //
-            }
-            
+            setEditing(false, animated: true)
         }
     }
     
