@@ -212,10 +212,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @IBAction func cancelMeme(_ sender: Any) {
+        
         dismiss(animated: true, completion: nil)
     }
     
-    
+    override var prefersStatusBarHidden : Bool {
+        return false
+    }
 
 }
 
