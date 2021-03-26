@@ -16,6 +16,7 @@ import UIKit
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        // set the Meme Image
         memeImageView.image = meme.memedImage
     }
     

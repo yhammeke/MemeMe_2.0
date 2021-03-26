@@ -11,17 +11,23 @@ class SentMemeTableViewController: UITableViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    @IBOutlet weak var editButton: UIBarButtonItem!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.reloadData()
         self.tableView.rowHeight = 100.0
-        //tableView.estimatedRowHeight = tableView.rowHeight
-        //tableView.rowHeight = UITableView.automaticDimension
+        
+        // Use the edit button provided by the view controller.
+        navigationItem.leftBarButtonItem = editButtonItem
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tableView.reloadData()
+        
     }
     
     // MARK: Table View Functions
@@ -29,6 +35,18 @@ class SentMemeTableViewController: UITableViewController {
     // Number of elements for the table
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return appDelegate.memes.count
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            appDelegate.memes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            //super.setEditing(isEditing, animated: true)
+            if appDelegate.memes.count == 0 {
+                //
+            }
+            
+        }
     }
     
     // Prepare the table
