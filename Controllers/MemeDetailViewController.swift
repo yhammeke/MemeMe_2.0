@@ -20,7 +20,6 @@ import UIKit
         self.tabBarController?.tabBar.isHidden = true
         // set the Meme Image.
         memeImageView.image = meme.memedImage
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -31,5 +30,4 @@ import UIKit
     override var prefersStatusBarHidden : Bool {
         return true     // set the status of the status bar to hidden
     }
-
 }
