@@ -68,16 +68,18 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     // MARK: Image Picker Functions
     
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+        pickAnImage(from: .photoLibrary)
     }
     
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
+        pickAnImage(from: .camera)
+    }
+    
+    // pickAnImage function provides the set up of the Image Picker from the corresponding source.
+    func pickAnImage(from source: UIImagePickerController.SourceType) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .camera
+        imagePicker.sourceType = source
         present(imagePicker, animated: true, completion: nil)
     }
     

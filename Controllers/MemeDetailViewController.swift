@@ -16,8 +16,16 @@ import UIKit
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        // set the Meme Image
+        // Hide the Tab Bar.
+        self.tabBarController?.tabBar.isHidden = true
+        // set the Meme Image.
         memeImageView.image = meme.memedImage
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // Show the Tab Bar.
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     override var prefersStatusBarHidden : Bool {

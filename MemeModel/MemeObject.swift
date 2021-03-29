@@ -10,8 +10,8 @@ import UIKit
 // MARK: MemeMe strunct
 
 struct Meme {
-    var topText: String!
-    var bottomText: String!
-    var origImage: UIImage!
-    var memedImage: UIImage!
+    let topText: String!
+    let bottomText: String!
+    let origImage: UIImage!
+    let memedImage: UIImage!
 }
