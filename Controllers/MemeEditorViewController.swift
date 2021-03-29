@@ -36,19 +36,21 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.topTextField.defaultTextAttributes = memeTextAttributes
-        self.topTextField.text = "TOP"
-        self.topTextField.textAlignment = .center
         
-        self.bottomTextField.defaultTextAttributes = memeTextAttributes
-        self.bottomTextField.text = "BOTTOM"
-        self.bottomTextField.textAlignment = .center
+        // Configure the text fields
+        configure(topTextField, with: "TOP")
+        configure(bottomTextField, with: "BOTTOM")
         
-        self.topTextField.delegate = self
-        self.bottomTextField.delegate = self
-        
+        // The Share Button shall be deactivated before the Meme is created.
         self.shareButton.isEnabled = false
-        
+    }
+    
+    // configure function provides the set up of the text fields.
+    func configure(_ textField: UITextField, with defaultText: String) {
+        textField.text = defaultText
+        textField.defaultTextAttributes = memeTextAttributes
+        textField.textAlignment = .center
+        textField.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
